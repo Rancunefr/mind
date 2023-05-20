@@ -4,4 +4,5 @@ AC_PREREQ([2.68])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_PROG_CC
 AC_CONFIG_FILES([Makefile src/Makefile])
+PKG_CHECK_MODULES([POPPLER], [poppler >= 0.18])
 AC_OUTPUT

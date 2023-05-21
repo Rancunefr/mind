@@ -1,9 +1,6 @@
-bin_PROGRAMS = mind pdftest
+bin_PROGRAMS = mind
 
-mind_SOURCES = main.c dict.c
+mind_SOURCES = main.c pdf.c dict.c process.c
 mind_LDADD = $(POPPLER_LIBS) $(GLIB_LIBS) $(CAIRO_LIBS)
 mind_CFLAGS = $(POPPLER_CFLAGS) $(GLIB_CFLAGS) $(CAIRO_CFLAGS)
 
-pdftest_SOURCES = pdf.c dict.c
-pdftest_LDADD = $(POPPLER_LIBS) $(GLIB_LIBS) $(CAIRO_LIBS)
-pdftest_CFLAGS = $(POPPLER_CFLAGS) $(GLIB_CFLAGS) $(CAIRO_CFLAGS)

@@ -13,7 +13,7 @@ void dict_free( dict_t* arbre ) {
 	}
 }
 
-dict_t* dict_insert( dict_t* arbre, gchar* mot ) {
+dict_t* dict_insert( dict_t* arbre, gunichar* mot ) {
 	if ( arbre == NULL ) {
 		dict_t* tmp = malloc( sizeof( dict_t ) ) ;
 		tmp->letter = mot[0] ;
@@ -32,11 +32,11 @@ dict_t* dict_insert( dict_t* arbre, gchar* mot ) {
 	}
 }
 
-int dict_search( dict_t* arbre, gchar* mot ) {
+int dict_search( dict_t* arbre, gunichar* mot ) {
 	if ( arbre == NULL )
 		return 0 ;
 	if ( arbre->letter == mot[0] ) {
-		if ( mot[0] == '\0' )
+		if ( mot[0] == U'\0' )
 			return 1 ;
 		else
 			return dict_search( arbre->next, mot+1 ) ;
@@ -63,11 +63,13 @@ dict_t* build_dict_from_file( const gchar* filename ) {
     
     // Iterate over the words and print them
     for (gchar** word = words; *word; ++word) {
-		g_print("Inserting %s\n", *word) ;
-        dico = dict_insert( dico, *word ) ;
+		gunichar* word_unichar = g_utf8_to_ucs4 ( *word, -1, NULL, NULL, NULL ) ;
+        dico = dict_insert( dico, word_unichar ) ;
+		g_free( word_unichar ) ;
     }
     
     g_strfreev(words);
 
 	return dico ;
 }
+

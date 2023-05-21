@@ -8,12 +8,12 @@ int main( int argc, char** argv, char** envv ) {
 
 	setlocale(LC_ALL, "") ;
 
-	dictionnaire = build_dict_from_file( "dict.fr" ) ;
+	dictionnaire = build_dict_from_file( "dict.us" ) ;
 
 	printf( "coucou : %d\n", dict_search( dictionnaire, "coucou" ) ) ;
 	printf( "chienne : %d\n", dict_search( dictionnaire, "chienne" ) ) ;
 	printf( "chienn : %d\n", dict_search( dictionnaire, "chienn" ) ) ;
-	printf( "chiot : %d\n", dict_search( dictionnaire, "chiot" ) ) ;
+	printf( "datasheet : %d\n", dict_search( dictionnaire, "datasheet" ) ) ;
 	
 	dict_free( dictionnaire ) ;
 	return 0 ;

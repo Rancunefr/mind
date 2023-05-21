@@ -1,0 +1,62 @@
+< Add de facon non interactive >
+mind doc add -l en -k keyword1 -k keyword2 -k keyword3 -f doc1.pdf doc2.pdf doc3.pdf
+
+< Add de facon interactive >
+mind doc add  doc1.pdf     ... pas de mot clé précisé ou pas de langue précisée
+mind keyword add  key1 key2 key3
+
+<Replace d'un document >
+mind doc replace <uid> file.pdf
+
+< Recherche simple >
+mind doc search -k toto -k tata -K titi ( -t type ou -T type )
+
+< retrieve >
+
+mind doc retrieve <uid> <uid>
+mind doc retrieve -k motcle -k motcle -k motcle
+
+< edit interactive >
+
+mind doc update <uid>
+
+< edition en cli >
+
+mind doc update -l fr <uid> <uid>           	         modifier la langue d'un document
+mind doc update -k mot1 -k mot2 -K mot3 <uid> <uid>      modifier les keywords 
+
+< disable doc >
+
+mind doc disable <uid> <uid> <uid>
+mind doc disable -k mot1 -k mot2 ... 
+
+<outil de visu >
+
+mind doc show <uid>
+mind doc list
+mind keywords list
+mind languages list
+mind disabled list
+mind disabled show <uid>
+mind type list
+
+mind system rebuild
+mind system check-consistency
+mind system show
+
+mind remote list										// via git ???????
+mind remote add <remote> <login@machine:chemin>
+mind remote del <remote>
+mind push <remote> 
+mind push <remote> <uid>
+mind push <remote> -k keyword
+mind pull <remote>
+mind pull <remote> <uid>
+mind pull <remote> -k keyword
+
+
+Questions :
+	- mimetype ?
+	- merge de 2 systemes sur 2 ordi differents ?
+	- notion de lien entre documents ?
+

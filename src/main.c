@@ -13,11 +13,16 @@ int main( int argc, char** argv, char** envv ) {
 
 	setlocale(LC_ALL, "") ;
 
+	int* test= malloc( 50000*sizeof(int) ) ;
+
 	dicts[LANG_EN] = dict_build_from_file( "./dict.en" ) ;
 	dicts[LANG_FR] = dict_build_from_file( "./dict.fr" ) ;
 
-	printf( "%d \n", dict_count( dicts[LANG_FR]) ) ;
-	printf( "%d \n", dict_count( dicts[LANG_EN]) ) ;
+	test[0] = dict_count( dicts[LANG_FR]) ;	
+	test[1] = dict_count( dicts[LANG_FR]) ;	
+
+	printf( "%d \n", test[0] ) ;
+	printf( "%d \n", test[1] ) ;
 
 
 

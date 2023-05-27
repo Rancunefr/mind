@@ -52,9 +52,9 @@ AC_CHECK_HEADERS([math.h])
 # Check for Poppler
 # =================
 
-PKG_CHECK_MODULES([POPPLER], [poppler-glib >= 0.18])
+# PKG_CHECK_MODULES([POPPLER], [poppler-glib >= 0.18])
 PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.0])
-PKG_CHECK_MODULES([CAIRO], [cairo])
+# PKG_CHECK_MODULES([CAIRO], [cairo])
 
 
 # =====================
@@ -80,7 +80,7 @@ AS_IF([test x"$enable_werror" = "xyes"], [
 # Display final informations about configuration
 # ==============================================
 
-CFLAGS += -g
+CFLAGS=" -Og -g"
 
 AC_MSG_NOTICE([
 ==============================================================================

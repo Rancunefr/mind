@@ -1,0 +1,12 @@
+{
+   ignore_unversioned_libs
+   Memcheck:Leak
+   ...
+   obj:/usr/lib64/libglib*
+}
+{
+   ignore_versioned_libs
+   Memcheck:Leak
+   ...
+   obj:/usr/lib64/libglib*
+}

@@ -79,7 +79,7 @@ AS_IF([test x"$enable_werror" = "xyes"], [
 # Display final informations about configuration
 # ==============================================
 
-CFLAGS=" -Og -g"
+CFLAGS=" -Wall -Werror -Og -g"
 
 AC_MSG_NOTICE([
 ==============================================================================

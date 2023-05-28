@@ -3,7 +3,7 @@
 
 gint g_unichar_strlen( gunichar* ) ;
 gunichar* get_next_word( gunichar*, gunichar**) ;
-void process_word( gunichar* ) ;
+void process_word( gunichar*, text_t, document_t* ) ;
 
 
 gint g_unichar_strlen( gunichar* text ) {
@@ -35,14 +35,21 @@ gunichar* get_next_word( gunichar* text, gunichar** word ) {
 }
 
 
-void process_word( gunichar* mot ) {
+void process_word( gunichar* mot, text_t type, document_t* doc ) {
 	gunichar* fin ;
 	gunichar* tmp ;
-	while( (!g_unichar_isalnum(*mot)) &&( *mot != U'\0' ) )
+
+	while( (!g_unichar_isalnum(*mot)) && ( *mot != U'\0' ) )
 		mot++ ;
+	
 	fin = mot + g_unichar_strlen( mot ) - 1 ;
-	while( (!g_unichar_isalnum(*fin)) &&( fin != mot ) )
+
+	if ( fin < mot )
+		return ;
+
+	while( (!g_unichar_isalnum(*fin)) && ( fin != mot ) )
 		fin-- ;
+
 	*(fin + 1) = U'\0' ;
 
 	for ( tmp = mot; tmp <= fin; tmp++ )
@@ -54,17 +61,21 @@ void process_word( gunichar* mot ) {
 
 	// TODO: INDEXATION
 	
-	printf("%s \n", g_ucs4_to_utf8( mot, -1, NULL, NULL, NULL ) );
+	// printf("%s \n", g_ucs4_to_utf8( mot, -1, NULL, NULL, NULL ) );
 
 }
 
 
-void process_text( gunichar* text ) {
+void process_text( gunichar* text, text_t type, document_t *doc  ) {
 	gunichar* cpy ;
 	gunichar* mot ;
+	if ( text == NULL )
+		return ;
+	if ( *text == '\0' )
+		return ;
 	cpy = get_next_word( text, &mot ) ;
 	while ( mot != NULL ) {
-		process_word( mot ) ;
+		process_word( mot, type, doc ) ;
 		cpy = get_next_word( cpy, &mot ) ;
 	} 
 }

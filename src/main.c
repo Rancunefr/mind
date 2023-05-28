@@ -13,6 +13,9 @@ dict_t* dicts[NB_DICTS] ;
 int main( int argc, char** argv, char** envv ) {
 
 	setlocale(LC_ALL, "") ;
+	document_t *doc ;
+
+	doc = document_new( FILETYPE_PDF, argv[1], LANG_EN, NULL ) ;
 
 	dicts[LANG_EN] = dict_build_from_file( "./dict.en" ) ;
 	dicts[LANG_FR] = dict_build_from_file( "./dict.fr" ) ;
@@ -20,10 +23,12 @@ int main( int argc, char** argv, char** envv ) {
 	printf( "%d \n", dict_count( dicts[LANG_FR]) ) ;
 	printf( "%d \n", dict_count( dicts[LANG_EN]) ) ;
 
-	load_pdf( argv[1] ) ;
+	load_pdf( doc ) ;
 
 	dict_free( dicts[LANG_EN] ) ;
 	dict_free( dicts[LANG_FR] ) ;
+
+	document_free( doc) ;
 
 	return 0 ;
 }

@@ -1,3 +1,4 @@
+#include <stdio.h> 
 #include "process.h"
 
 gint g_unichar_strlen( gunichar* ) ;
@@ -53,7 +54,7 @@ void process_word( gunichar* mot ) {
 
 	// TODO: INDEXATION
 	
-	// printf("%s \n", g_ucs4_to_utf8( mot, -1, NULL, NULL, NULL ) );
+	printf("%s \n", g_ucs4_to_utf8( mot, -1, NULL, NULL, NULL ) );
 
 }
 

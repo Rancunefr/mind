@@ -52,9 +52,8 @@ AC_CHECK_HEADERS([math.h])
 # Check for Poppler
 # =================
 
-# PKG_CHECK_MODULES([POPPLER], [poppler-glib >= 0.18])
+PKG_CHECK_MODULES([POPPLER], [poppler-glib >= 0.18])
 PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.0])
-# PKG_CHECK_MODULES([CAIRO], [cairo])
 
 
 # =====================

@@ -6,12 +6,14 @@
 typedef enum {
 	FILETYPE_PDF = 0,
 	FILETYPE_EMAIL,
-	FILETYPE_IMAGE
+	FILETYPE_IMAGE,
+	NB_FILETYPE			// Must always be last in enum
 } filetype_t ;
 
 typedef enum {
 	LANG_FR = 0,
-	LANG_EN
+	LANG_EN,
+	NB_LANG				// Must always be last in enum
 } lang_t ;
 
 

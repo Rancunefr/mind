@@ -40,9 +40,9 @@ mind disabled list
 mind disabled show <uid>
 mind type list
 
-mind system rebuild
-mind system check-consistency
-mind system show
+mind local rebuild
+mind local check-consistency
+mind local show
 
 mind remote list										// via git ???????
 mind remote add <remote> <login@machine:chemin>
